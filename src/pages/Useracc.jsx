@@ -75,17 +75,6 @@ function Useracc() {
     }
   };
 
- useEffect(() => {
-    axios
-      .get(`http://localhost:8080/api/matches/${id}`)
-      .then((response) => {
-        console.log("MATCH DETAILS:", response.data);
-        setMatch(response.data);
-      })
-      .catch((error) => {
-        console.error("ERROR FETCHING MATCH:", error);
-      });
-  }, [id]);
 
 
 
