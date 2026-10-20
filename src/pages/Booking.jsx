@@ -34,7 +34,7 @@ function Booking() {
 
   useEffect(() => {
     axios
-      .get( `${import.meta.env.VITE_API_URL}`)
+      .get( `${import.meta.env.VITE_API_URL}/api/matches`)
       .then((response) => {
         console.log("MATCHES FROM BACKEND:", response.data);
         setMatches(response.data);
