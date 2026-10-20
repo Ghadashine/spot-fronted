@@ -11,17 +11,25 @@ function Home() {
   const [matches, setMatches] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/matches`)
-      .then((response) => {
-        setMatches(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+ useEffect(() => {
+  axios
+    .get(`${import.meta.env.VITE_API_URL}/api/matches`)
+    .then((response) => {
+      console.log("Matches response:", response.data);
+      console.log("Response is array:", Array.isArray(response.data));
 
+      if (Array.isArray(response.data)) {
+        setMatches(response.data);
+      } else {
+        console.error("Expected an array of matches, received:", response.data);
+        setMatches([]);
+      }
+    })
+    .catch((error) => {
+      console.error("Failed to fetch matches:", error);
+      setMatches([]);
+    });
+}, []);
   const handleBooking = (matchId) => {
     const token = localStorage.getItem("token");
 
