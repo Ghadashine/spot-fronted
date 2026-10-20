@@ -59,10 +59,7 @@ function Useracc() {
     try {
       const token = localStorage.getItem("token");
 
-
-
-      
-      await axios.delete("http://localhost:8080/api/users/delete", {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -91,7 +88,7 @@ useEffect(() => {
       }
 
       const response = await axios.get(
-  "http://localhost:8080/api/bookings",
+   `${import.meta.env.VITE_API_URL}/api/bookings`,
   {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,

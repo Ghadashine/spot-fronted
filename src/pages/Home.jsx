@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/matches")
+      .get(`${import.meta.env.VITE_API_URL}/api/matches`)
       .then((response) => {
         setMatches(response.data);
       })

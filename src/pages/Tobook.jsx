@@ -57,7 +57,7 @@ const total = ticketPrice + serviceFee;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/matches/${id}`)
+      .get( `${import.meta.env.VITE_API_URL}/api/matches/${id}`)
       .then((response) => {
         setMatch(response.data);
       })
