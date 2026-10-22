@@ -347,12 +347,10 @@ function Booking() {
           <div className="border border-white/10 py-20 text-center">
 
             <p className="font-serif text-3xl text-white/70">
-              No matches found.
+             LOADING MATCHES....
             </p>
 
-            <p className="mt-3 text-sm text-gray-500">
-              Try selecting another competition.
-            </p>
+           
 
           </div>
         )}
